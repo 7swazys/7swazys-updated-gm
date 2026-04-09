@@ -247,12 +247,12 @@
         let bgAudio = null;
         let isAudioEnabled = false;
 
-        let bits = 0;
-        let multiplier = 100;
+        let bits = 5000;
+        let multiplier = 1
         let rebirths = 30;
-        let totalMultiplier = 100;
-        let autoClickerLevel = 9000;
-        let autoSpeedLevel = 9000;
+        let totalMultiplier = 10;
+        let autoClickerLevel = 1;
+        let autoSpeedLevel = 1;
         let isRedTheme = false;
 
         const entryScreen = document.getElementById('entryScreen');
@@ -302,7 +302,7 @@
         setInterval(() => {
             if (!isAudioEnabled) return;
             
-            const autoGain = autoClickerLevel * multiplier * (1 + autoSpeedLevel * 0.2);
+            const autoGain = autoClickerLevel * multiplier * (1 + autoSpeedLevel * 0.1);
             bits += autoGain / 10;
 
             if (!isRedTheme && bits >= 100) {
@@ -329,7 +329,7 @@
         });
 
         document.getElementById('buyAuto').addEventListener('click', () => {
-            const cost = Math.floor(50 * Math.pow(1.15, autoClickerLevel));
+            const cost = Math.floor(50 * Math.pow(900, autoClickerLevel));
             if (bits >= cost) {
                 bits -= cost;
                 autoClickerLevel++;
@@ -341,7 +341,7 @@
             const cost = Math.floor(200 * Math.pow(1.3, multiplier - 1));
             if (bits >= cost) {
                 bits -= cost;
-                multiplier += 0.5;
+                multiplier += 400;
                 updateUI();
             }
         });
