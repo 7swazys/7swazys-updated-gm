@@ -329,7 +329,7 @@
         });
 
         document.getElementById('buyAuto').addEventListener('click', () => {
-            const cost = Math.floor(50 * Math.pow(900, autoClickerLevel));
+            const cost = Math.floor(50 * Math.pow(1, autoClickerLevel));
             if (bits >= cost) {
                 bits -= cost;
                 autoClickerLevel++;
@@ -341,7 +341,7 @@
             const cost = Math.floor(200 * Math.pow(1.3, multiplier - 1));
             if (bits >= cost) {
                 bits -= cost;
-                multiplier += 2;
+                multiplier += 1;
                 updateUI();
             }
         });
