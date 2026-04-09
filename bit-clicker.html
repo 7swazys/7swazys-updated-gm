@@ -314,24 +314,20 @@
             updateUI();
         }, 100);
 
-        // ==================== CLICK SOUND ON EVERYTHING ====================
         function handleClick(e) {
             if (!isAudioEnabled) return;
             
-            // Play click sound on big hook AND all buttons
             if (e.target.closest('#bigHook') || e.target.tagName === 'BUTTON') {
                 playClickSound();
             }
         }
 
-        // Big hook click (earn bits)
         document.getElementById('bigHook').addEventListener('click', () => {
             if (!isAudioEnabled) return;
             bits += multiplier;
             updateUI();
         });
 
-        // Upgrades
         document.getElementById('buyAuto').addEventListener('click', () => {
             const cost = Math.floor(50 * Math.pow(1.15, autoClickerLevel));
             if (bits >= cost) {
@@ -376,14 +372,14 @@
             isAudioEnabled = true;
 
             clickAudio = new Audio(clickSoundUrl);
-            clickAudio.volume = 0.6;
+            clickAudio.volume = 0.80;
 
             bgAudio = new Audio(normalBgUrl);
-            bgAudio.volume = 0.35;
+            bgAudio.volume = 0.45;
             bgAudio.loop = true;
 
             const intro = new Audio(introSoundUrl);
-            intro.volume = 0.7;
+            intro.volume = 1;
             intro.play().catch(() => {});
 
             entryScreen.classList.add('hide');
